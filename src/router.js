@@ -11,7 +11,7 @@ import All from './pages/all'
 import Welcome from './pages/welcome'
 
 export default () => {
-    <Router>
+    return (<Router>
         <div>
             <Header />
             <div className='main-contains' style={{minHeight: document.body.clientHeight}}>
@@ -22,5 +22,5 @@ export default () => {
                 </Switch>
             </div>
         </div>
-    </Router>
+    </Router>)
 }

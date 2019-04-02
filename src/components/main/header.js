@@ -1,10 +1,11 @@
 import React from 'react'
 import { Icon } from 'antd'
 import { Link } from 'react-router-dom'
+import './style.css'
 
 export default () => {
     return (
-        <div class='navbar'>
+        <div className='navbar'>
             <ul mode = 'horizontal' className='barstyle'>
                 <li className = 'logostyle' key='logo'>
                     <Icon className='Iconstyle' type='api' />
