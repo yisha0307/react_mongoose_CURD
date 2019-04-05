@@ -1,7 +1,7 @@
 // mongoose初始化配置
 
 const mongoose = require('mongoose')
-const DB_URL = 'mongodb://localhost:29017/CURD'
+const DB_URL = 'mongodb://localhost:27017/CURD'
 const autoIncrement = require('mongoose-auto-increment')
 
 const connection = mongoose.createConnection(DB_URL, { useNewUrlParser: true })
