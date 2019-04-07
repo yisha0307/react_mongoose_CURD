@@ -1,10 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `yarn start`
+### 前端 `yarn start`
 
 进入src目录 run `yarn start`
 localhost:3000
 
+### 后端 `node app.js`
+localhost:8000
 
 ### 整个项目结构
 ├── models(mongoos.js model,宗旨上以数据表名一一对应)
