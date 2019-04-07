@@ -28,16 +28,18 @@ class EditModal extends Component {
                 // 检验没错误之后再update data
                 console.log(values)
                 // 判断是update还是add
-                if(editDataObj.key) {
+                if(editDataObj.id) {
                     // update
-                    values.key = editDataObj.key
-                    updateData(values)
-                } else {
-                    const key = this.state.key + 1
-                    this.setState({key})
-                    values.key = key
-                    saveData(values)
+                    values.id = editDataObj.id
+                    // updateData(values)
                 }
+                // } else {
+                //     const key = this.state.key + 1
+                //     this.setState({key})
+                //     values.key = key
+                //     saveData(values)
+                // }
+                updateData(values)
                 // 重置表单
                 resetFields()
                 onModelCancel()

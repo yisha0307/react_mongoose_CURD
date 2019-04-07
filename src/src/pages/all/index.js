@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Table, Modal } from 'antd'
 
 import EditModal from './edit'
-import { data } from 'mm';
+import AllService from '../../service/all'
 const confirm = Modal.confirm
 
 export default class All extends Component {
@@ -27,29 +27,34 @@ export default class All extends Component {
         })
     }
 
-    saveData = (newData) => {
-        const {dataSource} = this.state
-        dataSource.push(newData)
-        this.setState({
-            dataSource
-        })
+    // saveData = (newData) => {
+    //     const {dataSource} = this.state
+    //     dataSource.push(newData)
+    //     this.setState({
+    //         dataSource
+    //     })
+    // }
+    // updateData = (values) => {
+    //     const {dataSource} = this.state
+
+    //     const status = values.status || 0
+
+    //     const index = dataSource.findIndex(d => d.key === values.key)
+    //     if (status >=0 ) {
+    //         let replace = dataSource.splice(index, 1, values)
+    //     } else {
+    //         let deleted = dataSource.splice(index, 1)
+    //     }
+
+    //     this.setState({
+    //         dataSource
+    //     })
+    // }
+
+    updateData = async (values) => {
+        const {data} = await AllService.update(values)
     }
-    updateData = (values) => {
-        const {dataSource} = this.state
 
-        const status = values.status || 0
-
-        const index = dataSource.findIndex(d => d.key === values.key)
-        if (status >=0 ) {
-            let replace = dataSource.splice(index, 1, values)
-        } else {
-            let deleted = dataSource.splice(index, 1)
-        }
-
-        this.setState({
-            dataSource
-        })
-    }
     deleteHandle = (record) => {
         confirm({
             title: `您确定要删除?(${record.key})`,
