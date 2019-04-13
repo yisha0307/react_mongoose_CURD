@@ -50,17 +50,23 @@ export default class All extends Component {
     //         dataSource
     //     })
     // }
-
+    getDataSourceList = async () => {
+        const {data} = await AllService.getList()
+        this.setState({
+            dataSource: data
+        })
+    }
     updateData = async (values) => {
         const {data} = await AllService.update(values)
+        this.getDataSourceList()
     }
 
     deleteHandle = (record) => {
         confirm({
-            title: `您确定要删除?(${record.key})`,
+            title: `您确定要删除?(${record.id})`,
             onOk: () => {
                 this.updateData({
-                    key: record.key,
+                    id: record.id,
                     status: -1
                 })
             }
@@ -71,6 +77,9 @@ export default class All extends Component {
             editVisible: true,
             editDataObj: record
         })
+    }
+    componentWillMount () {
+        this.getDataSourceList()
     }
     render () {
         const {editVisible, dataSource, editDataObj} = this.state
@@ -87,8 +96,8 @@ export default class All extends Component {
     columns = [
         {
             title: 'id',
-            dataIndex: 'key',
-            key: 'key'
+            dataIndex: 'id',
+            key: 'id'
         }, {
             title: '姓名',
             dataIndex: 'name',

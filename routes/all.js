@@ -14,7 +14,6 @@ route.get('/list', async (request, response) => {
     ret.data = datas
     response.send(ret)
 })
-module.exports = route
 
 // create, update, delete
 // 没有id --- create
@@ -50,7 +49,8 @@ route.post('/update', async (request, response) => {
         }
         const new_dataSourceObj = await dataSourceObj.save()
         ret.data = {
-            id: new_dataSourceObj.id, update: true
+            id: new_dataSourceObj.id, 
+            update: true
         }
     } else {
         // 删除
@@ -62,3 +62,5 @@ route.post('/update', async (request, response) => {
     }
     response.send(ret)
 })
+
+module.exports = route
